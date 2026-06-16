@@ -10,9 +10,9 @@ def update_contact(contacts, index_contacts, updated_contact_name, updated_conta
         contacts[updated_index]["contact"] = updated_contact_name
         contacts[updated_index]["email"] = updated_contact_email
         contacts[updated_index]["phone_number"] = updated_contact_phone
-        print(f"Contado atualizado para:{index_contacts}, {updated_contact_name}, {updated_contact_email}, {updated_contact_phone}")
+        print(f"updated contact for:{index_contacts}, {updated_contact_name}, {updated_contact_email}, {updated_contact_phone}")
     else:
-        print("deu merda")
+        print("contact not found!")
 
 def add_favorites(contacts,index_contacts,):
     index_favorite = int(index_contacts) -1
@@ -62,11 +62,14 @@ while True:
     print("4.view contact list")
     print("5.View list of favorite contacts")
     print("6.Delete contact")
-    print("7. Exit")
-    print("8.Uptade contact")
+    print("7.Uptade contact")
+    print("0. Exit")
 
     action = input("Choose an option: ")
-    if action == "1":
+    if action == "0":
+        break
+
+    elif action == "1":
         name_contact = input("Enter the name of the contact you wish to add: ")
         email_contact = input("Enter the E-mail of the contact you wish to add: ")
         phone_contact = input("Enter the phone number of the contact you wish to add: ")
@@ -94,13 +97,10 @@ while True:
        index_contacts = input("Enter the contact number you wish to remove: ")
        remove_contact(options,index_contacts)
 
-    elif action == "7":
-        break
-
-    elif action =="8":
+    elif action =="7":
         view_contacts(options)
-        index_contacts = input("Digite o número da contato que deseja atualizar:")
-        novo_nome = input ("digite o novo nome")
-        novo_email = input ("digite o novo email")
-        novo_phone = input ("digite o novo phone")
+        index_contacts = input("Enter the contact number you wish to update:")
+        novo_nome = input ("enter the new name")
+        novo_email = input ("enter the new email")
+        novo_phone = input ("enter the new phone")
         update_contact(options, index_contacts, novo_nome, novo_email, novo_phone)
